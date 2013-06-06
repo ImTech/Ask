@@ -50,7 +50,7 @@ public class CoverFragment extends Fragment{
             
             @Override
             public boolean isViewFromObject(View arg0, Object arg1) {
-                return true;
+                return arg0 == arg1;
             }
             
             @Override
