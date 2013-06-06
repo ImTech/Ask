@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    
+    <fragment android:id="@+id/fmtCover"
+        class="com.imtech.ask.ui.CoverFragment"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"/>
+    
+    <Button android:id="@+id/btnText"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:text="比比问问"
+        />
+
+</LinearLayout>
