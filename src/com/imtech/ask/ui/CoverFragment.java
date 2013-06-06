@@ -46,7 +46,6 @@ public class CoverFragment extends Fragment{
     private void setupView(View root){
         Log.d(TAG, "setupView");
         mViewPager = (ViewPager) root.findViewById(R.id.viewPager);
-        mViewPager.setBackgroundColor(Color.MAGENTA);
         mViewPager.setAdapter(new PagerAdapter() {
             
             @Override
