@@ -1,12 +1,39 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
-
-    <fragment
-        android:id="@+id/content"
-        android:name="com.imtech.ask.ui.activity.NewsFragment"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent" />
-
-</LinearLayout>
+    android:layout_height="match_parent"
+    android:background="#c4c4c4"
+    tools:context=".MainActivity" >
+		
+    <TextView android:id="@+id/txtTitle"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:textSize="20sp"
+        android:textColor="#fff"
+        android:gravity="center_vertical"
+        android:paddingLeft="10dp"
+        android:background="@drawable/bg_title"
+        android:text="戴尔 比比问问"
+        />
+    
+    <fragment class="com.imtech.ask.ui.DockFragment"
+        android:id="@+id/dockFragment"
+        android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_alignParentBottom="true"
+        />
+    
+    <FrameLayout android:id="@+id/centerContainer"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/txtTitle"
+        android:layout_above="@id/dockFragment"
+        >
+        
+    </FrameLayout>
+    
+</RelativeLayout>

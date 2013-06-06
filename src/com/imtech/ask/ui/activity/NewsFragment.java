@@ -1,13 +1,14 @@
 package com.imtech.ask.ui.activity;
 
-import com.imtech.ask.R;
-import com.imtech.ask.ui.adapter.NewsAdapter;
-import com.imtech.ask.view.pull2refresh.PullToRefreshListView;
-
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.imtech.ask.BaseFragment;
+import com.imtech.ask.R;
+import com.imtech.ask.ui.adapter.NewsAdapter;
+import com.imtech.ask.view.pull2refresh.PullToRefreshListView;
 
 public class NewsFragment extends BaseFragment {
 	private static final String TAG = "NewsFragment";
