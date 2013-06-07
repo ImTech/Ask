@@ -15,6 +15,7 @@ public interface IDockFragment {
     
     public void setDockListener(DockListener l);
     public void setSelected(int position);
+    public int  getBarHeight();
     
     public interface DockListener{
         void onDockItemClicked(int position);

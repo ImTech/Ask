@@ -6,6 +6,8 @@
 package com.imtech.ask.ui.home;
 
 import android.os.Bundle;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +15,7 @@ import android.view.ViewGroup;
 
 import com.imtech.ask.R;
 import com.imtech.ask.ui.BaseFragment;
+import com.imtech.ask.ui.CoverFragment;
 
 /**
  * @author douzifly
@@ -26,7 +29,16 @@ public class HomeFragment extends BaseFragment{
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
         Log.d(TAG, "onCreateView");
-        return inflater.inflate(R.layout.home, null);
+        super.onCreateView(inflater, container, savedInstanceState);
+        setupView();
+        return inflater.inflate(R.layout.fragment_home, null);
+    }
+    
+    private void setupView(){
+    	FragmentManager fm = getFragmentManager();
+    	FragmentTransaction tran = fm.beginTransaction();
+    	tran.add(R.id.homeCoverContainer, new CoverFragment());
+    	tran.commit();
     }
     
 }

@@ -38,7 +38,7 @@ public class CoverFragment extends Fragment{
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.cover, null);
+        View v = inflater.inflate(R.layout.fragment_cover, null);
         setupView(v);
         return v;
     }
@@ -78,7 +78,7 @@ public class CoverFragment extends Fragment{
             
             @Override
             public int getCount() {
-                Log.d(TAG, "getCount");
+//                Log.d(TAG, "getCount");
                 return 3;
             }
             

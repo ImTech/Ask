@@ -4,36 +4,35 @@
     android:layout_height="match_parent"
     android:background="#c4c4c4"
     tools:context=".MainActivity" >
-		
-    <TextView android:id="@+id/txtTitle"
-        android:layout_height="wrap_content"
+
+    <TextView
+        android:id="@+id/txtTitle"
         android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
-        android:textSize="20sp"
-        android:textColor="#fff"
+        android:background="@drawable/bg_title"
         android:gravity="center_vertical"
         android:paddingLeft="10dp"
-        android:background="@drawable/bg_title"
         android:text="戴尔 比比问问"
-        />
-    
-    <fragment class="com.imtech.ask.ui.DockFragment"
-        android:id="@+id/dockFragment"
+        android:textColor="#fff"
+        android:textSize="20sp" />
+
+    <FrameLayout
+        android:id="@+id/mainCenterContainer"
         android:layout_width="match_parent"
-		android:layout_height="wrap_content"
-		android:layout_alignParentBottom="true"
-        />
-    
-    <FrameLayout android:id="@+id/centerContainer"
         android:layout_height="match_parent"
-        android:layout_width="match_parent"
+        android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
-        android:layout_below="@id/txtTitle"
-        android:layout_above="@id/dockFragment"
-        >
-        
+        android:layout_below="@id/txtTitle" >
     </FrameLayout>
-    
+
+    <fragment
+        android:id="@+id/dockFragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        class="com.imtech.ask.ui.DockFragment" />
+
 </RelativeLayout>

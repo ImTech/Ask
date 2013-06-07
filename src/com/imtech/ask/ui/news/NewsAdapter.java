@@ -1,6 +1,7 @@
 package com.imtech.ask.ui.news;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -15,7 +16,7 @@ public class NewsAdapter extends BaseAdapter {
 
 	@Override
 	public int getCount() {
-		return 10;
+		return 20;
 	}
 
 	@Override
@@ -31,7 +32,9 @@ public class NewsAdapter extends BaseAdapter {
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
 		TextView view = new TextView(mContext);
-		view.setText("suddenlydream");
+		view.setText("suddenlydream  " + position);
+		view.setTextColor(Color.BLACK);
+		view.setPadding(20, 30, 20, 30);
 		return view;
 	}
 

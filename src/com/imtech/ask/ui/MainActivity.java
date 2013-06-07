@@ -1,20 +1,27 @@
 package com.imtech.ask.ui;
 
-import com.imtech.ask.R;
-import com.imtech.ask.R.id;
-import com.imtech.ask.R.layout;
-import com.imtech.ask.ui.home.HomeFragment;
-
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
-import android.view.ViewGroup;
+import android.util.Log;
+import android.view.View;
+import android.view.ViewTreeObserver.OnGlobalLayoutListener;
+import android.widget.RelativeLayout;
+
+import com.imtech.ask.R;
+import com.imtech.ask.ui.IDockFragment.DockListener;
+import com.imtech.ask.ui.home.HomeFragment;
+import com.imtech.ask.ui.news.NewsFragment;
 
 public class MainActivity extends FragmentActivity{
     
-    private ViewGroup mFragmentContainer;
+	final static String TAG = "ASK_UI_MainActivity";
 
+	private MainPageFramework mPageFramwork;
+	private IDockFragment mDockFragment;
+	private View mCenterContainer;
+	private boolean mIsViewAjusted = false;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -23,13 +30,71 @@ public class MainActivity extends FragmentActivity{
 	}
 	
 	private void setupView(){
-	    mFragmentContainer = (ViewGroup)findViewById(R.id.centerContainer);
-	    
+		
+		FragmentManager fm = getSupportFragmentManager();
+		mDockFragment = (IDockFragment) fm.findFragmentById(R.id.dockFragment);
+		mDockFragment.setDockListener(new DockListener() {
+			
+			@Override
+			public void onDockItemClicked(int position) {
+				mPageFramwork.showFragment(position);
+			}
+			
+			@Override
+			public void onDockCenterItemClicked() {
+				mPageFramwork.showHomeFragment();
+			}
+		});
+		
+		
+		// init framwork
+	    mPageFramwork = new MainPageFramework(this);
+	    mPageFramwork.setContainer(R.id.mainCenterContainer);
 	    HomeFragment home = new HomeFragment();
-	    FragmentManager fm = getSupportFragmentManager();
-	    FragmentTransaction tran = fm.beginTransaction();
-	    tran.add(R.id.centerContainer, home);
-	    tran.commit();
+	    mPageFramwork.setHomeFragment(home);
+	    mPageFramwork.showHomeFragment();
+	    
+	    NewsFragment news = new NewsFragment();
+	    mPageFramwork.addModule(news);
+	    
+	    NewsFragment news1 = new NewsFragment();
+	    mPageFramwork.addModule(news1);
+	    
+	    NewsFragment news2 = new NewsFragment();
+	    mPageFramwork.addModule(news2);
+	    
+	    NewsFragment news3 = new NewsFragment();
+	    mPageFramwork.addModule(news3);
+	    
+	    mCenterContainer = findViewById(R.id.mainCenterContainer);
+	 
+	    mCenterContainer.getViewTreeObserver().addOnGlobalLayoutListener(new OnGlobalLayoutListener() {
+			
+			@Override
+			public void onGlobalLayout() {
+				Log.d(TAG, "onGlobalLayout");
+				ajustView();
+			}
+		});
 	}
+	
+	
+	/**
+	 * ajust height of center container view
+	 */
+	private void ajustView(){
+		if(mIsViewAjusted) return;
+		int marginBottom = mDockFragment.getBarHeight();
+		if(marginBottom > 0){
+			mIsViewAjusted = true;
+		}
+		Log.d(TAG, "adjustView marginBottom:" + marginBottom);
+		RelativeLayout.LayoutParams lp = (RelativeLayout.LayoutParams)mCenterContainer.getLayoutParams();
+		lp.setMargins(0, 0, 0, marginBottom);
+		mCenterContainer.requestLayout();
+	}
+
+
+
 
 }
