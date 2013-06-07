@@ -3,7 +3,7 @@
  * github.com/douzifly
  * douzifly@gmail.com
  */
-package com.imtech.ask;
+package com.imtech.ask.ui;
 
 import android.support.v4.app.Fragment;
 

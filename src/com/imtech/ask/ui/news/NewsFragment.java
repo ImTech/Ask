@@ -5,8 +5,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.imtech.ask.BaseFragment;
 import com.imtech.ask.R;
+import com.imtech.ask.ui.BaseFragment;
 import com.imtech.ask.view.pull2refresh.PullToRefreshListView;
 
 public class NewsFragment extends BaseFragment {

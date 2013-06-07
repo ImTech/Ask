@@ -1,5 +1,8 @@
-package com.imtech.ask;
+package com.imtech.ask.ui;
 
+import com.imtech.ask.R;
+import com.imtech.ask.R.id;
+import com.imtech.ask.R.layout;
 import com.imtech.ask.ui.home.HomeFragment;
 
 import android.os.Bundle;
