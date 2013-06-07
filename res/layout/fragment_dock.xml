@@ -7,9 +7,9 @@
         android:id="@+id/dockBar"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="5dp"
         android:layout_marginTop="@dimen/dock_item_margin_top"
         android:background="@drawable/bg_title"
+        android:paddingTop="5dp"
         android:orientation="horizontal" >
 
         <Button
