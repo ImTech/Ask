@@ -1,0 +1,61 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_ist_item_white"
+    android:padding="10dp" >
+
+    <TextView
+        android:id="@+id/date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/title"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginRight="5dp"
+        android:background="@null"
+        android:gravity="bottom"
+        android:singleLine="true"
+        android:textColor="#5b5b5b"
+        android:textSize="8sp" />
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginRight="5dp"
+        android:layout_toLeftOf="@id/date"
+        android:background="@null"
+        android:ellipsize="end"
+        android:gravity="bottom"
+        android:singleLine="true"
+        android:textColor="#3c3c3c"
+        android:textSize="16sp" />
+
+    <ImageView
+        android:id="@+id/thumb"
+        android:layout_width="100dp"
+        android:layout_height="60dp"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@id/title"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@null" />
+
+    <TextView
+        android:id="@+id/summary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/date"
+        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@id/thumb"
+        android:background="@null"
+        android:singleLine="false"
+        android:maxLines="4"
+        android:textColor="#0000C6"
+        android:textSize="12sp" />
+
+</RelativeLayout>
