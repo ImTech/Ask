@@ -77,4 +77,12 @@
         <attr name="ptrDrawableBottom" format="reference" />
     </declare-styleable>
 
+    <!-- TitleIndicator -->
+    <declare-styleable name="TitleIndicator">
+        <attr name="normalDrawable" format="reference" />
+        <attr name="selectDrawable" format="reference" />
+        <attr name="indicatorTextSize" format="reference|dimension" />
+        <attr name="indicatorTextColor" format="reference|color" />
+    </declare-styleable>
+
 </resources>

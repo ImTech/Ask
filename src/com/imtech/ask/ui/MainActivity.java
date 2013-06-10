@@ -1,5 +1,7 @@
 package com.imtech.ask.ui;
 
+import java.text.MessageFormat;
+
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
@@ -11,7 +13,10 @@ import android.widget.RelativeLayout;
 import com.imtech.ask.R;
 import com.imtech.ask.ui.IDockFragment.DockListener;
 import com.imtech.ask.ui.home.HomeFragment;
+import com.imtech.ask.ui.message.MessageFragment;
 import com.imtech.ask.ui.news.NewsFragment;
+import com.imtech.ask.ui.topic.TopicFragment;
+import com.imtech.ask.ui.user.UserFragment;
 
 public class MainActivity extends FragmentActivity{
     
@@ -57,14 +62,14 @@ public class MainActivity extends FragmentActivity{
 	    NewsFragment news = new NewsFragment();
 	    mPageFramwork.addModule(news);
 	    
-	    NewsFragment news1 = new NewsFragment();
-	    mPageFramwork.addModule(news1);
+	    TopicFragment topic = new TopicFragment();
+	    mPageFramwork.addModule(topic);
 	    
-	    NewsFragment news2 = new NewsFragment();
-	    mPageFramwork.addModule(news2);
+	    MessageFragment msg = new MessageFragment();
+	    mPageFramwork.addModule(msg);
 	    
-	    NewsFragment news3 = new NewsFragment();
-	    mPageFramwork.addModule(news3);
+	    UserFragment user = new UserFragment();
+	    mPageFramwork.addModule(user);
 	    
 	    mCenterContainer = findViewById(R.id.mainCenterContainer);
 	 
