@@ -24,10 +24,10 @@ import android.widget.ImageButton;
 public class DockFragment extends Fragment implements IDockFragment, OnClickListener{
     
     private DockListener mLisenter;
-    private Button mBtn1;
-    private Button mBtn2;
-    private Button mBtn3;
-    private Button mBtn4;
+    private ImageButton mBtn1;
+    private ImageButton mBtn2;
+    private ImageButton mBtn3;
+    private ImageButton mBtn4;
     private ImageButton mBtnCenter;
     final static int POS_CENTER = -1;
     private View mBar;
@@ -41,13 +41,13 @@ public class DockFragment extends Fragment implements IDockFragment, OnClickList
     }
     
     private void setupView(View root){
-    	mBtn1 = (Button) root.findViewById(R.id.dockBtn1);
+    	mBtn1 = (ImageButton) root.findViewById(R.id.dockBtn1);
     	mBtn1.setTag(0);
-    	mBtn2 = (Button) root.findViewById(R.id.dockBtn2);
+    	mBtn2 = (ImageButton) root.findViewById(R.id.dockBtn2);
     	mBtn2.setTag(1);
-    	mBtn3 = (Button) root.findViewById(R.id.dockBtn3);
+    	mBtn3 = (ImageButton) root.findViewById(R.id.dockBtn3);
     	mBtn3.setTag(2);
-    	mBtn4 = (Button) root.findViewById(R.id.dockBtn4);
+    	mBtn4 = (ImageButton) root.findViewById(R.id.dockBtn4);
     	mBtn4.setTag(3);
     	
     	mBtnCenter = (ImageButton) root.findViewById(R.id.dockBtnCenter);

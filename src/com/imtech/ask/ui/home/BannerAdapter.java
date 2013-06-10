@@ -3,7 +3,7 @@
  * @author  : huqiming 
  * @date    : 2013-6-9
  */
-package com.imtech.ask.ui;
+package com.imtech.ask.ui.home;
 
 import java.util.List;
 
@@ -12,6 +12,7 @@ import android.support.v4.view.PagerAdapter;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.ImageView.ScaleType;
 
 import com.imtech.ask.R;
 import com.viewpagerindicator.IconPagerAdapter;
@@ -44,6 +45,7 @@ public class BannerAdapter extends PagerAdapter implements IconPagerAdapter{
 	public Object instantiateItem(ViewGroup container, int position) {
 		ImageView view = new ImageView(container.getContext());
 		container.addView(view);
+		view.setScaleType(ScaleType.FIT_XY);
 		Drawable bmp = mBanners.get(position).getDrawable();
 		if(bmp != null){
 			view.setImageDrawable(bmp);

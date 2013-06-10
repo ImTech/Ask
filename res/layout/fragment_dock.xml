@@ -12,42 +12,51 @@
         android:paddingTop="5dp"
         android:orientation="horizontal" >
 
-        <Button
+        <ImageButton
             android:id="@+id/dockBtn1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="最新资讯"
-            android:textSize="9sp" />
+            android:background="@null"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_dock_btn_news"
+         />
 
-        <Button
+        <ImageButton
             android:id="@+id/dockBtn2"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="问答社区"
-            android:textSize="9sp" />
+            android:background="@null"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_dock_btn_ask"
+         />
 
         <View
             android:id="@+id/dockPlaceHolder"
             android:layout_width="50dp"
             android:layout_height="50dp" />
 
-        <Button
+         <ImageButton
             android:id="@+id/dockBtn3"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="查看消息"
-            android:textSize="9sp" />
+            android:background="@null"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_dock_btn_message"
+         />
 
-        <Button
+         <ImageButton
             android:id="@+id/dockBtn4"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="个人中心"
-            android:textSize="9sp" />
+            android:background="@null"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_dock_btn_user"
+         />
+
     </LinearLayout>
 
     <ImageButton

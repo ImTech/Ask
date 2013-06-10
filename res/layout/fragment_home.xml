@@ -3,15 +3,29 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
-    
-    <FrameLayout android:id="@+id/homeCoverContainer"
+
+    <FrameLayout
+        android:id="@+id/homeCoverContainer"
         android:layout_width="match_parent"
-        android:layout_height="180dp"/>
-    
-    <Button android:id="@+id/btnText"
-        android:layout_height="match_parent"
+        android:background="#ddd"
+        android:layout_height="180dp" />
+
+    <FrameLayout
         android:layout_width="match_parent"
-        android:text="比比问问"
-        />
+        android:layout_height="match_parent" >
+
+        <include
+            android:id="@+id/home_menu_grid"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            layout="@layout/home_menu_grid" />
+        
+        <View android:id="@+id/homeShadow"
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:background="@drawable/bg_home_grid_shadow"
+            />
+        
+    </FrameLayout>
 
 </LinearLayout>

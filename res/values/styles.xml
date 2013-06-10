@@ -20,7 +20,7 @@
     </style>
     
     <style name="iconIndicator">
-        <item name="android:padding">5dp</item>
+        <item name="android:padding">@dimen/circle_indicator_padding</item>
     </style>
     
  </resources>

@@ -3,7 +3,7 @@
  * github.com/douzifly
  * douzifly@gmail.com
  */
-package com.imtech.ask.ui;
+package com.imtech.ask.ui.home;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -49,9 +49,9 @@ public class BannerFragment extends Fragment{
         mViewPager.setAdapter(mAdapter);
         
         List<Banner> banners = new ArrayList<Banner>();
-        banners.add(new Banner("", getResources().getDrawable(android.R.drawable.ic_menu_week)));
-        banners.add(new Banner("", getResources().getDrawable(android.R.drawable.ic_menu_week)));
-        banners.add(new Banner("", getResources().getDrawable(android.R.drawable.ic_menu_week)));
+        banners.add(new Banner("", getResources().getDrawable(R.drawable.bg_banner_demo)));
+        banners.add(new Banner("", getResources().getDrawable(R.drawable.bg_banner_demo)));
+        banners.add(new Banner("", getResources().getDrawable(R.drawable.bg_banner_demo)));
         mAdapter.setBanner(banners);
         mIndicator.setViewPager(mViewPager);
     }

@@ -15,7 +15,6 @@ import android.view.ViewGroup;
 
 import com.imtech.ask.R;
 import com.imtech.ask.ui.BaseFragment;
-import com.imtech.ask.ui.BannerFragment;
 
 /**
  * @author douzifly

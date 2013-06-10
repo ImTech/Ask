@@ -3,9 +3,8 @@
  * @author  : huqiming 
  * @date    : 2013-6-9
  */
-package com.imtech.ask.ui;
+package com.imtech.ask.ui.home;
 
-import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
 
 /**
