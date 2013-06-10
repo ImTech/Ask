@@ -16,7 +16,7 @@
         android:background="@null"
         android:gravity="bottom"
         android:singleLine="true"
-        android:textColor="@color/gray1"
+        android:textColor="#5b5b5b"
         android:textSize="8sp" />
 
     <TextView
@@ -31,13 +31,13 @@
         android:ellipsize="end"
         android:gravity="bottom"
         android:singleLine="true"
-        android:textColor="@color/gray2"
+        android:textColor="#3c3c3c"
         android:textSize="16sp" />
 
     <ImageView
         android:id="@+id/thumb"
-        android:layout_width="100dp"
-        android:layout_height="60dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:layout_alignParentLeft="true"
         android:layout_below="@id/title"
         android:layout_marginRight="10dp"
@@ -55,7 +55,22 @@
         android:background="@null"
         android:maxLines="4"
         android:singleLine="false"
-        android:textColor="@color/blue"
+        android:textColor="#0000C6"
         android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/msgs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/summary"
+        android:layout_margin="4dp"
+        android:background="@null"
+        android:drawableLeft="@drawable/ic_msg"
+        android:drawablePadding="4dp"
+        android:singleLine="true"
+        android:textColor="#5b5b5b"
+        android:textSize="8sp" />
 
 </RelativeLayout>
