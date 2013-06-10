@@ -15,7 +15,7 @@ import android.view.ViewGroup;
 
 import com.imtech.ask.R;
 import com.imtech.ask.ui.BaseFragment;
-import com.imtech.ask.ui.CoverFragment;
+import com.imtech.ask.ui.BannerFragment;
 
 /**
  * @author douzifly
@@ -37,7 +37,7 @@ public class HomeFragment extends BaseFragment{
     private void setupView(){
     	FragmentManager fm = getFragmentManager();
     	FragmentTransaction tran = fm.beginTransaction();
-    	tran.add(R.id.homeCoverContainer, new CoverFragment());
+    	tran.add(R.id.homeCoverContainer, new BannerFragment());
     	tran.commit();
     }
     
