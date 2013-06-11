@@ -6,13 +6,14 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.imtech.ask.R;
+import com.imtech.ask.core.TestConstant;
+import com.imtech.ask.ui.ImageLoadAdapter;
 
-public class TopicsAdapter extends BaseAdapter {
+public class TopicsAdapter extends ImageLoadAdapter {
 	// private Context mContext;
 	private LayoutInflater mInflater;
 	private List<TopicModel> mDatas;
@@ -64,6 +65,8 @@ public class TopicsAdapter extends BaseAdapter {
 			holder.title.setText(model.title);
 			holder.msgs.setText(String.valueOf(model.msgs));
 		}
+		
+		displayImage(TestConstant.IMAGES[position], holder.thumb);
 		return convertView;
 	}
 

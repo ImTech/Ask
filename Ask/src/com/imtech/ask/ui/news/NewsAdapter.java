@@ -3,16 +3,20 @@ package com.imtech.ask.ui.news;
 import java.util.List;
 
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.imtech.ask.R;
+import com.imtech.ask.core.TestConstant;
+import com.imtech.ask.ui.ImageLoadAdapter;
+import com.nostra13.universalimageloader.core.assist.FailReason;
+import com.nostra13.universalimageloader.core.assist.ImageLoadingListener;
 
-public class NewsAdapter extends BaseAdapter {
+public class NewsAdapter extends ImageLoadAdapter {
 	// private Context mContext;
 	private LayoutInflater mInflater;
 	private List<NewsModel> mDatas;
@@ -62,6 +66,8 @@ public class NewsAdapter extends BaseAdapter {
 			holder.summary.setText(model.summary);
 			holder.title.setText(model.title);
 		}
+
+		displayImage(TestConstant.IMAGES[position], holder.thumb);
 		return convertView;
 	}
 

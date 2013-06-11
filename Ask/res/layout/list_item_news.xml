@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/bg_list_item_white"
+    android:background="@drawable/bg_white_high"
     android:padding="10dp" >
 
     <TextView

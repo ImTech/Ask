@@ -69,6 +69,7 @@ public class MessageAdapter extends BaseAdapter {
 				holder.msgCounts.setVisibility(View.GONE);
 			}
 		}
+
 		return convertView;
 	}
 

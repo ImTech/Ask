@@ -6,12 +6,13 @@
 package com.imtech.ask.ui.topic;
 
 import java.util.ArrayList;
-import java.util.List;
 
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
 
 import com.imtech.ask.R;
 import com.imtech.ask.ui.BaseFragment;
@@ -19,17 +20,20 @@ import com.imtech.ask.util.StringUtils;
 import com.imtech.ask.view.TitleIndicator;
 import com.imtech.ask.view.TitleIndicator.IndicatorItem;
 import com.imtech.ask.view.TitleIndicator.OnIndicatorListener;
+import com.imtech.ask.view.pull2refresh.PullToRefreshBase;
+import com.imtech.ask.view.pull2refresh.PullToRefreshBase.OnRefreshListener;
 import com.imtech.ask.view.pull2refresh.PullToRefreshListView;
 
 /**
  * 问答社区
  */
-public class TopicFragment extends BaseFragment implements OnIndicatorListener {
+public class TopicFragment extends BaseFragment implements OnIndicatorListener, OnRefreshListener<ListView> {
 	private static final String TAG = "TopicFragment";
 	private static final int INDICATOR_LAST_TOPICS = 0;
 	private static final int INDICATOR_TOP_TOPICS = 1;
 	private static final int INDICATOR_COMMON_TOPICS = 2;
 	private TopicsAdapter mAdapter;
+	private PullToRefreshListView mListView;
 	private TitleIndicator mIndicator;
 	private ArrayList<TopicModel> mLastTopics;
 	private ArrayList<TopicModel> mTopTopics;
@@ -44,9 +48,10 @@ public class TopicFragment extends BaseFragment implements OnIndicatorListener {
 
 	private View initView(LayoutInflater inflater) {
 		View view = inflater.inflate(R.layout.fragment_topic, null);
-		PullToRefreshListView listView = (PullToRefreshListView) view.findViewById(R.id.listview);
+		mListView = (PullToRefreshListView) view.findViewById(R.id.listview);
 		mAdapter = new TopicsAdapter(getActivity());
-		listView.setAdapter(mAdapter);
+		mListView.setAdapter(mAdapter);
+		mListView.setOnRefreshListener(this);
 
 		mIndicator = (TitleIndicator) view.findViewById(R.id.title_indicator);
 		mIndicator.setIndicatorListener(this);
@@ -114,5 +119,30 @@ public class TopicFragment extends BaseFragment implements OnIndicatorListener {
 
 		mAdapter.setDatas(list);
 		mAdapter.notifyDataSetChanged();
+	}
+
+	@Override
+	public void onRefresh(PullToRefreshBase<ListView> refreshView) {
+		String label = getString(R.string.pull_to_refresh_refreshing_label);
+		refreshView.getLoadingLayoutProxy().setRefreshingLabel(label);
+		new RefereshTask().execute();
+	}
+
+	class RefereshTask extends AsyncTask<Void, Void, Void> {
+
+		@Override
+		protected Void doInBackground(Void... params) {
+			try {
+				Thread.sleep(4000);
+			} catch (InterruptedException e) {
+			}
+			return null;
+		}
+
+		protected void onPostExecute(Void result) {
+			initDatas();
+			mListView.onRefreshComplete();
+		};
+
 	}
 }
