@@ -24,10 +24,10 @@ import android.widget.ImageButton;
 public class DockFragment extends Fragment implements IDockFragment, OnClickListener{
     
     private DockListener mLisenter;
-    private ImageButton mBtn1;
-    private ImageButton mBtn2;
-    private ImageButton mBtn3;
-    private ImageButton mBtn4;
+    private ImageButton mBtnAsk;
+    private ImageButton mBtnNews;
+    private ImageButton mBtnMsg;
+    private ImageButton mBtnUser;
     private ImageButton mBtnCenter;
     final static int POS_CENTER = -1;
     private View mBar;
@@ -41,22 +41,22 @@ public class DockFragment extends Fragment implements IDockFragment, OnClickList
     }
     
     private void setupView(View root){
-    	mBtn1 = (ImageButton) root.findViewById(R.id.dockBtn1);
-    	mBtn1.setTag(0);
-    	mBtn2 = (ImageButton) root.findViewById(R.id.dockBtn2);
-    	mBtn2.setTag(1);
-    	mBtn3 = (ImageButton) root.findViewById(R.id.dockBtn3);
-    	mBtn3.setTag(2);
-    	mBtn4 = (ImageButton) root.findViewById(R.id.dockBtn4);
-    	mBtn4.setTag(3);
+    	mBtnAsk = (ImageButton) root.findViewById(R.id.dockBtnAsk);
+    	mBtnAsk.setTag(0);
+    	mBtnNews = (ImageButton) root.findViewById(R.id.dockBtnNews);
+    	mBtnNews.setTag(1);
+    	mBtnMsg = (ImageButton) root.findViewById(R.id.dockBtnMsg);
+    	mBtnMsg.setTag(2);
+    	mBtnUser = (ImageButton) root.findViewById(R.id.dockBtnUser);
+    	mBtnUser.setTag(3);
     	
     	mBtnCenter = (ImageButton) root.findViewById(R.id.dockBtnCenter);
     	mBtnCenter.setTag(POS_CENTER);
     	
-    	mBtn1.setOnClickListener(this);
-    	mBtn2.setOnClickListener(this);
-    	mBtn3.setOnClickListener(this);
-    	mBtn4.setOnClickListener(this);
+    	mBtnAsk.setOnClickListener(this);
+    	mBtnNews.setOnClickListener(this);
+    	mBtnMsg.setOnClickListener(this);
+    	mBtnUser.setOnClickListener(this);
     	
     	mBtnCenter.setOnClickListener(this);
     	

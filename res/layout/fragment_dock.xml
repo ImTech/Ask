@@ -9,54 +9,77 @@
         android:layout_height="match_parent"
         android:layout_marginTop="@dimen/dock_item_margin_top"
         android:background="@drawable/bg_title"
-        android:paddingTop="5dp"
-        android:orientation="horizontal" >
+        android:orientation="horizontal"
+        android:paddingTop="5dp" >
 
-        <ImageButton
-            android:id="@+id/dockBtn1"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@null"
-            android:scaleType="centerInside"
-            android:src="@drawable/ic_dock_btn_news"
-         />
+            android:gravity="center" >
 
-        <ImageButton
-            android:id="@+id/dockBtn2"
+            <ImageButton
+                android:id="@+id/dockBtnNews"
+                android:layout_width="@dimen/dock_item_size"
+                android:layout_height="@dimen/dock_item_size"
+                android:layout_weight="1"
+                android:background="@null"
+                android:scaleType="centerInside"
+                android:src="@drawable/ic_dock_btn_news" />
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@null"
-            android:scaleType="centerInside"
-            android:src="@drawable/ic_dock_btn_ask"
-         />
+            android:gravity="center" >
+
+            <ImageButton
+                android:id="@+id/dockBtnAsk"
+                android:layout_width="@dimen/dock_item_size"
+                android:layout_height="@dimen/dock_item_size"
+                android:layout_weight="1"
+                android:background="@null"
+                android:scaleType="centerInside"
+                android:src="@drawable/ic_dock_btn_ask" />
+        </LinearLayout>
 
         <View
             android:id="@+id/dockPlaceHolder"
             android:layout_width="50dp"
             android:layout_height="50dp" />
 
-         <ImageButton
-            android:id="@+id/dockBtn3"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@null"
-            android:scaleType="centerInside"
-            android:src="@drawable/ic_dock_btn_message"
-         />
+            android:gravity="center" >
 
-         <ImageButton
-            android:id="@+id/dockBtn4"
+            <ImageButton
+                android:id="@+id/dockBtnMsg"
+                android:layout_width="@dimen/dock_item_size"
+                android:layout_height="@dimen/dock_item_size"
+                android:layout_weight="1"
+                android:background="@null"
+                android:scaleType="centerInside"
+                android:src="@drawable/ic_dock_btn_message" />
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@null"
-            android:scaleType="centerInside"
-            android:src="@drawable/ic_dock_btn_user"
-         />
+            android:gravity="center" >
 
+            <ImageButton
+                android:id="@+id/dockBtnUser"
+                android:layout_width="@dimen/dock_item_size"
+                android:layout_height="@dimen/dock_item_size"
+                android:layout_weight="1"
+                android:background="@null"
+                android:scaleType="centerInside"
+                android:src="@drawable/ic_dock_btn_user" />
+        </LinearLayout>
     </LinearLayout>
 
     <ImageButton
