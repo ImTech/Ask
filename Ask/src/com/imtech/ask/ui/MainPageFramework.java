@@ -9,20 +9,17 @@ import java.security.InvalidParameterException;
 import java.util.ArrayList;
 import java.util.List;
 
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
-
-import com.imtech.ask.R;
 
 /**
  * UI framework
  * @author XiaoyuanLiu
  *
  */
-public class MainPageFramework {
+public class MainPageFramework implements IPageFramework{
 	
 	final static String TAG = "ASK_UI_MainPageFramework";
 	
@@ -39,10 +36,12 @@ public class MainPageFramework {
 	
 	public void setHomeFragment(BaseFragment fragment){
 		mHomeFragment = fragment;
+		mHomeFragment.setPageFramework(this);
 	}
 	
 	public void addModule(BaseFragment fragment){
 		mModules.add(fragment);
+		fragment.setPageFramework(this);
 	}
 	
 	/**
@@ -92,5 +91,20 @@ public class MainPageFramework {
 			throw new InvalidParameterException("home fragment is null");
 		}
 		showFragment(mHomeFragment);
+	}
+	
+	public void showFragment(String tag){
+		Log.d(TAG, "showFragment tag:" + tag);
+		if(tag.equals(ModuleConfig.MODULE_HOME_ID)){
+			showHomeFragment();
+			return;
+		}
+		for(int i = 0, j = mModules.size(); i < j; i++){
+			BaseFragment f = mModules.get(i);
+			if(tag.equals(f.getModuleId())){
+				showFragment(f);
+				break;
+			}
+		}
 	}
 }

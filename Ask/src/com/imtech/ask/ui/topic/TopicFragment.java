@@ -12,12 +12,15 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.View.OnClickListener;
 import android.widget.ListView;
 
 import com.imtech.ask.R;
 import com.imtech.ask.ui.BaseFragment;
+import com.imtech.ask.ui.ModuleConfig;
 import com.imtech.ask.util.StringUtils;
 import com.imtech.ask.view.TitleIndicator;
+import com.imtech.ask.view.TopBar;
 import com.imtech.ask.view.TitleIndicator.IndicatorItem;
 import com.imtech.ask.view.TitleIndicator.OnIndicatorListener;
 import com.imtech.ask.view.pull2refresh.PullToRefreshBase;
@@ -40,7 +43,7 @@ public class TopicFragment extends BaseFragment implements OnIndicatorListener, 
 	private ArrayList<TopicModel> mCommonTopics;
 
 	@Override
-	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+	public View onCreateContentView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		View view = initView(inflater);
 		initDatas();
 		return view;
@@ -59,8 +62,30 @@ public class TopicFragment extends BaseFragment implements OnIndicatorListener, 
 		mIndicator.addItem(R.string.top_topics, INDICATOR_TOP_TOPICS);
 		mIndicator.addItem(R.string.common_topics, INDICATOR_COMMON_TOPICS);
 		mIndicator.setIndicator(0);
+		
+		getTopBar().setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				if(v.getId() == TopBar.ID_LEFT_ICON){
+					showFragment(ModuleConfig.MODULE_HOME_ID);
+				}
+			}
+		});
+		getTopBar().setTitle(getModuleName());
+		
 		return view;
 	};
+	
+	@Override
+	public String getModuleId() {
+		return ModuleConfig.MODULE_ASK_ID;
+	}
+	
+	@Override
+	public String getModuleName() {
+		return "问答社区";
+	}
 
 	private void initDatas() {
 		String date = StringUtils.formatDate();

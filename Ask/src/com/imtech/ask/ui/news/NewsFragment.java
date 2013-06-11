@@ -12,16 +12,18 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.ListView;
 
 import com.imtech.ask.R;
 import com.imtech.ask.ui.BaseFragment;
+import com.imtech.ask.ui.ModuleConfig;
 import com.imtech.ask.util.StringUtils;
+import com.imtech.ask.view.TopBar;
 import com.imtech.ask.view.pull2refresh.PullToRefreshBase;
 import com.imtech.ask.view.pull2refresh.PullToRefreshBase.OnRefreshListener;
 import com.imtech.ask.view.pull2refresh.PullToRefreshListView;
-import com.nostra13.universalimageloader.core.ImageLoader;
 
 /**
  * 最新资讯
@@ -32,7 +34,7 @@ public class NewsFragment extends BaseFragment implements OnRefreshListener<List
 	private PullToRefreshListView mListView;
 
 	@Override
-	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+	public View onCreateContentView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		View view = initView(inflater);
 		initDatas();
 		return view;
@@ -44,8 +46,31 @@ public class NewsFragment extends BaseFragment implements OnRefreshListener<List
 		mAdapter = new NewsAdapter(getActivity());
 		mListView.setAdapter(mAdapter);
 		mListView.setOnRefreshListener(this);
+		
+		getTopBar().setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				if(v.getId() == TopBar.ID_LEFT_ICON){
+					showFragment(ModuleConfig.MODULE_HOME_ID);
+				}
+			}
+		});
+		
+		getTopBar().setTitle(getModuleName());
+		
 		return view;
 	};
+	
+	@Override
+	public String getModuleId() {
+		return ModuleConfig.MODULE_NEWS_ID;
+	}
+	
+	@Override
+	public String getModuleName() {
+		return "最新资讯";
+	}
 
 	private void initDatas() {
 		List<NewsModel> list = new ArrayList<NewsModel>();

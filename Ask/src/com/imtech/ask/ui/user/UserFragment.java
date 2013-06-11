@@ -10,12 +10,15 @@ import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.View.OnClickListener;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.imtech.ask.R;
 import com.imtech.ask.core.TestConstant;
 import com.imtech.ask.ui.BaseFragment;
+import com.imtech.ask.ui.ModuleConfig;
+import com.imtech.ask.view.TopBar;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
 /**
@@ -25,8 +28,18 @@ public class UserFragment extends BaseFragment {
 	private static final String TAG = "UserFragment";
 
 	@Override
-	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+	public View onCreateContentView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		return initView(inflater);
+	}
+	
+	@Override
+	public String getModuleId() {
+		return ModuleConfig.MODULE_USER_ID;
+	}
+	
+	@Override
+	public String getModuleName() {
+		return "个人中心";
 	}
 
 	private View initView(LayoutInflater inflater) {
@@ -44,6 +57,19 @@ public class UserFragment extends BaseFragment {
 		ImageView avatar = (ImageView) view.findViewById(R.id.avatar);
 
 		loadAvatar(avatar);
+		
+		getTopBar().setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				if(v.getId() == TopBar.ID_LEFT_ICON){
+					showFragment(ModuleConfig.MODULE_HOME_ID);
+				}
+			}
+		});
+		
+		getTopBar().setTitle(getModuleName());
+		
 		return view;
 	}
 

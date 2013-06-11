@@ -11,11 +11,14 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.View.OnClickListener;
 import android.widget.ListView;
 
 import com.imtech.ask.R;
 import com.imtech.ask.ui.BaseFragment;
+import com.imtech.ask.ui.ModuleConfig;
 import com.imtech.ask.ui.message.MessageModel.Type;
+import com.imtech.ask.view.TopBar;
 
 /**
  * 查看消息
@@ -25,7 +28,7 @@ public class MessageFragment extends BaseFragment {
 	private MessageAdapter mAdapter;
 
 	@Override
-	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+	public View onCreateContentView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		View view = initView(inflater);
 		initDatas();
 		return view;
@@ -36,7 +39,29 @@ public class MessageFragment extends BaseFragment {
 		ListView listview = (ListView) view.findViewById(R.id.listview);
 		mAdapter = new MessageAdapter(getActivity());
 		listview.setAdapter(mAdapter);
+		
+		getTopBar().setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				if(v.getId() == TopBar.ID_LEFT_ICON){
+					showFragment(ModuleConfig.MODULE_HOME_ID);
+				}
+			}
+		});
+		getTopBar().setTitle(getModuleName());
+		
 		return view;
+	}
+	
+	@Override
+	public String getModuleId() {
+		return ModuleConfig.MODULE_MSG_ID;
+	}
+	
+	@Override
+	public String getModuleName() {
+		return "消息";
 	}
 
 	private void initDatas() {

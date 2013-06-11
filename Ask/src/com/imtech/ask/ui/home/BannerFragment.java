@@ -17,7 +17,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.imtech.ask.R;
-import com.viewpagerindicator.CirclePageIndicator;
 import com.viewpagerindicator.PageIndicator;
 
 /**
