@@ -21,5 +21,6 @@
     <dimen name="top_bar_left_icon_width">40dp</dimen>
     <dimen name="top_bar_left_icon_height">30dp</dimen>
     <dimen name="top_bar_button_margin">5dp</dimen>
-
+    
+	<integer name="slide_anim_time">300</integer>
 </resources>

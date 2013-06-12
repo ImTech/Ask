@@ -9,6 +9,8 @@ import java.security.InvalidParameterException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.imtech.ask.R;
+
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -54,9 +56,22 @@ public class MainPageFramework implements IPageFramework{
 	
 	private void showFragment(BaseFragment next){
 		
+		if(next == mCurrentFragment){
+			return;
+		}
+		
 		FragmentManager fm = mActiivty.getSupportFragmentManager();
 		FragmentTransaction tran = fm.beginTransaction();
-		
+		if(mCurrentFragment != null){
+			// do not animate when first in
+			if(next != mHomeFragment){
+				// not switch to home, left out , right in
+				tran.setCustomAnimations(R.anim.slide_in_from_right, R.anim.slide_out_to_left, R.anim.slide_in_from_right, R.anim.slide_out_to_left);
+			}else{
+				// switch to home, left in, right out
+				tran.setCustomAnimations(R.anim.slide_in_from_left, R.anim.slide_out_to_right, R.anim.slide_in_from_left, R.anim.slide_out_to_right);
+			}
+		}
 		// prev leave
 		if(mCurrentFragment != null){
 			tran.hide(mCurrentFragment);
