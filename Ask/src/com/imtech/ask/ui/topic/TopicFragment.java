@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.View.OnClickListener;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.imtech.ask.R;
 import com.imtech.ask.ui.BaseFragment;
@@ -69,11 +70,14 @@ public class TopicFragment extends BaseFragment implements OnIndicatorListener, 
 			public void onClick(View v) {
 				if(v.getId() == TopBar.ID_LEFT_ICON){
 					showFragment(ModuleConfig.MODULE_HOME_ID);
+				}else if(v.getId() == TopBar.ID_RIGHT_BUTTON){
+					Toast.makeText(getActivity(), "你点击了右边的按钮", Toast.LENGTH_SHORT).show();
 				}
 			}
 		});
-		getTopBar().setTitle(getModuleName());
-		
+		getTopBar().setTitle(getModuleName())
+				.setDisplayMode(TopBar.DISPLAY_MODE_ICON, TopBar.DISPLAY_MODE_BUTTON)
+				.setRightButtonText("提问");
 		return view;
 	};
 	

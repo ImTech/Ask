@@ -6,6 +6,7 @@
 package com.imtech.ask.view;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.Gravity;
@@ -60,31 +61,36 @@ public class TopBar extends FrameLayout implements OnClickListener{
 		mTitle = (TextView) mContainer.findViewById(R.id.topBarTitle);
 	}
 	
-	public void setTitle(String title){
-		if(mTitle == null) return;
+	public TopBar setTitle(String title){
+		if(mTitle == null) return this;
 		mTitle.setVisibility(View.VISIBLE);
 		mTitle.setText(title);
+		return this;
 	}
 	
-	public void setTitleVisibility(int visible){
-		if(mTitle == null) return;
+	public TopBar setTitleVisibility(int visible){
+		if(mTitle == null) return this;
 		mTitle.setVisibility(visible);
+		return this;
 	}
 	
-	public void setRightButtonText(CharSequence text){
-		if(mRightButton == null) return;
+	public TopBar setRightButtonText(CharSequence text){
+		if(mRightButton == null) return this;
 		mRightButton.setText(text);
+		return this;
 	}
 	
-	public void setRightButtonText(int id){
-		if(mRightButton == null) return;
+	public TopBar setRightButtonText(int id){
+		if(mRightButton == null) return this;
 		mRightButton.setText(id);
+		return this;
 	}
 	
 	/**
 	 * set display style of side icon
 	 */
-	public void setDisplayMode(int left, int right){
+	public TopBar setDisplayMode(int left, int right){
+		
 		
 		// left
 		switch (left) {
@@ -93,58 +99,66 @@ public class TopBar extends FrameLayout implements OnClickListener{
 			break;
 		// not finished yet.
 		case DISPLAY_MODE_ICON:
+			mLeftContainer.setVisibility(View.VISIBLE);
 			LayoutInflater li = (LayoutInflater)getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 			li.inflate(R.layout.top_bar_left_icon, mLeftContainer);
 			View v = mLeftContainer.findViewById(R.id.topbarLeftIcon);
 			v.setId(ID_LEFT_ICON);
 			v.setOnClickListener(this);
-//			mLeftContainer.addView(v);
+			break;
 		default:
 			break;
 		}
 		
 		switch (right) {
 		case DISPLAY_MODE_NONE:
+			Log.d(TAG, "set right none");
 			mRightContainer.setVisibility(View.GONE);
 			break;
 		case DISPLAY_MODE_BUTTON:
+			mRightContainer.setVisibility(View.VISIBLE);
 			LayoutInflater li = (LayoutInflater)getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 			li.inflate(R.layout.top_bar_right_button, mRightContainer);
 			mRightButton = (Button)mRightContainer.findViewById(R.id.topbarRightButton);
 			mRightButton.setId(ID_RIGHT_BUTTON);
 			mRightButton.setOnClickListener(this);
-
+			break;
 		default:
 			break;
 		}
 		
+		return this;
+		
 	}
 	
-	public void setCustomeView(View v, FrameLayout.LayoutParams lp){
+	public TopBar setCustomeView(View v, FrameLayout.LayoutParams lp){
 		if(lp == null){
 			lp = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
 			lp.gravity = Gravity.CENTER_VERTICAL;
 		}
 		removeAllViews();
 		addView(v, lp);
+		return this;
 	}
 
-	public void setLeftView(View v, FrameLayout.LayoutParams lp){
+	public TopBar setLeftView(View v, FrameLayout.LayoutParams lp){
 		if(lp == null){
 			lp = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
 			lp.gravity = Gravity.CENTER_VERTICAL;
 		}
 		mLeftContainer.removeAllViews();
 		mLeftContainer.addView(v, lp);
+		return this;
 	}
 	
-	public void setRightView(View v, FrameLayout.LayoutParams lp){
+	public TopBar setRightView(View v, FrameLayout.LayoutParams lp){
 		if(lp == null){
 			lp = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
 			lp.gravity = Gravity.CENTER_VERTICAL;
 		}
 		mRightContainer.removeAllViews();
 		mRightContainer.addView(v, lp);
+		return this;
 	}
 	
 	public void setOnClickListener(OnClickListener l){
