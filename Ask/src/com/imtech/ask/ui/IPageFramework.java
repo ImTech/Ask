@@ -11,4 +11,10 @@ package com.imtech.ask.ui;
  */
 public interface IPageFramework {
 	void showFragment(String tag);
+	void setOnFragmentChangedListener(OnFragmentChangedListener l);
+	
+	public static interface OnFragmentChangedListener{
+	    void onFragmentChanged(BaseFragment newFragment);
+	}
+	
 }

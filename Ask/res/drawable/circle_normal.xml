@@ -3,5 +3,5 @@
     android:shape="oval" >
 	<size android:width="@dimen/circle_indicator_size"
 	    android:height="@dimen/circle_indicator_size"/>
-	<solid android:color="#6c6c6c"/>
+	<solid android:color="#ddd"/>
 </shape>

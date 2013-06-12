@@ -71,7 +71,7 @@ public class TopicFragment extends BaseFragment implements OnIndicatorListener, 
 				if(v.getId() == TopBar.ID_LEFT_ICON){
 					showFragment(ModuleConfig.MODULE_HOME_ID);
 				}else if(v.getId() == TopBar.ID_RIGHT_BUTTON){
-					Toast.makeText(getActivity(), "你点击了右边的按钮", Toast.LENGTH_SHORT).show();
+				    showFragment(ModuleConfig.MODULE_ASK_ID);
 				}
 			}
 		});

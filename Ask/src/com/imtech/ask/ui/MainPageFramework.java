@@ -32,6 +32,7 @@ public class MainPageFramework implements IPageFramework{
 	private int mContainerId;
 	private FragmentActivity mActiivty;
 	private BaseFragment mCurrentFragment;
+	private OnFragmentChangedListener mListener;
 	
 	public MainPageFramework(FragmentActivity activity){
 		mActiivty = activity;
@@ -65,6 +66,10 @@ public class MainPageFramework implements IPageFramework{
 		
 		if(next == mCurrentFragment){
 			return;
+		}
+		
+		if(mListener != null){
+		    mListener.onFragmentChanged(next);
 		}
 		
 		FragmentManager fm = mActiivty.getSupportFragmentManager();
@@ -129,6 +134,10 @@ public class MainPageFramework implements IPageFramework{
 			showHomeFragment();
 			return;
 		}
+		if(tag.equals(ModuleConfig.MODULE_ASK_ID)){
+		    showAskFragment();
+		    return;
+		}
 		for(int i = 0, j = mModules.size(); i < j; i++){
 			BaseFragment f = mModules.get(i);
 			if(tag.equals(f.getModuleId())){
@@ -137,4 +146,9 @@ public class MainPageFramework implements IPageFramework{
 			}
 		}
 	}
+
+    @Override
+    public void setOnFragmentChangedListener(OnFragmentChangedListener l) {
+        mListener = l;
+    }
 }

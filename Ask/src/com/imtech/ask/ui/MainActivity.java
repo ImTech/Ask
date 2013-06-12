@@ -10,6 +10,7 @@ import android.widget.RelativeLayout;
 
 import com.imtech.ask.R;
 import com.imtech.ask.ui.IDockFragment.DockListener;
+import com.imtech.ask.ui.IPageFramework.OnFragmentChangedListener;
 import com.imtech.ask.ui.ask.AskFragment;
 import com.imtech.ask.ui.home.HomeFragment;
 import com.imtech.ask.ui.message.MessageFragment;
@@ -52,6 +53,28 @@ public class MainActivity extends FragmentActivity{
 		
 		// init framwork
 	    mPageFramwork = new MainPageFramework(this);
+	    mPageFramwork.setOnFragmentChangedListener(new OnFragmentChangedListener() {
+            
+            @Override
+            public void onFragmentChanged(BaseFragment newFragment) {
+                int pos = DockFragment.POSITION_INVALID;
+                String id = newFragment.getModuleId();
+                if(id.equals(ModuleConfig.MODULE_NEWS_ID)){
+                    pos = 0;
+                }else  if(id.equals(ModuleConfig.MODULE_TOPIC_ID)){
+                    pos = 1;
+                }else  if(id.equals(ModuleConfig.MODULE_MSG_ID)){
+                    pos = 2;
+                }else  if(id.equals(ModuleConfig.MODULE_USER_ID)){
+                    pos = 3;
+                }
+                
+                mDockFragment.setSelected(pos);
+                
+            }
+        });
+	    
+	    
 	    mPageFramwork.setContainer(R.id.mainCenterContainer);
 	    HomeFragment home = new HomeFragment();
 	    mPageFramwork.setHomeFragment(home);
