@@ -9,7 +9,7 @@
         android:layout_height="fill_parent"
         android:background="@color/gray"
         android:cacheColorHint="#00000000"
-        android:divider="@drawable/split_line"
+        android:divider="@drawable/split_line_horizontal"
         android:fadingEdge="none"
         android:fastScrollEnabled="false"
         android:footerDividersEnabled="true"

@@ -61,7 +61,7 @@
         android:layout_height="1dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
-        android:background="@drawable/split_line" />
+        android:background="@drawable/split_line_horizontal" />
 
     <LinearLayout
         android:id="@+id/home_menu_row2"
