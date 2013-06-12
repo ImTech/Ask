@@ -5,19 +5,14 @@
  */
 package com.imtech.ask.ui.home;
 
-import org.w3c.dom.Text;
-
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.View.OnClickListener;
-import android.webkit.WebView.FindListener;
-import android.widget.ImageButton;
-import android.widget.TextView;
+import android.view.ViewGroup;
 
 import com.imtech.ask.R;
 import com.imtech.ask.ui.BaseFragment;
@@ -53,7 +48,7 @@ public class HomeFragment extends BaseFragment implements OnClickListener{
     	tran.commit();
     	
     	mBtnNews = root.findViewById(R.id.homeBtnNews);
-    	mBtnAsk = root.findViewById(R.id.homeBtnAsk);
+    	mBtnAsk = root.findViewById(R.id.homeBtnTopic);
     	
     	mBtnAsk.setOnClickListener(this);
     	mBtnNews.setOnClickListener(this);
@@ -70,8 +65,8 @@ public class HomeFragment extends BaseFragment implements OnClickListener{
 		case R.id.homeBtnNews:
 			pageFramework.showFragment(ModuleConfig.MODULE_NEWS_ID);
 			break;
-		case R.id.homeBtnAsk:
-			pageFramework.showFragment(ModuleConfig.MODULE_ASK_ID);
+		case R.id.homeBtnTopic:
+			pageFramework.showFragment(ModuleConfig.MODULE_TOPIC_ID);
 			break;
 
 		default:

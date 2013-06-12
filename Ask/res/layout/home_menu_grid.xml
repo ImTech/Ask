@@ -29,12 +29,12 @@
             layout="@layout/home_menu_divider_vertical" />
 
         <TextView
-            android:id="@+id/homeBtnAsk"
+            android:id="@+id/homeBtnTopic"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_weight="1"
-            android:drawableTop="@drawable/ic_home_menu_ask"
+            android:drawableTop="@drawable/ic_home_menu_topic"
             android:gravity="center_horizontal"
             android:text="专业问答" />
 
@@ -50,7 +50,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_weight="1"
-            android:drawableTop="@drawable/ic_home_menu_ask"
+            android:drawableTop="@drawable/ic_home_menu_topic"
             android:gravity="center_horizontal"
             android:text="快速搜索" />
     </LinearLayout>
@@ -91,7 +91,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_weight="1"
-            android:drawableTop="@drawable/ic_home_menu_ask"
+            android:drawableTop="@drawable/ic_home_menu_topic"
             android:gravity="center_horizontal"
             android:text="智能提醒" />
 
@@ -107,7 +107,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_weight="1"
-            android:drawableTop="@drawable/ic_home_menu_ask"
+            android:drawableTop="@drawable/ic_home_menu_topic"
             android:gravity="center_horizontal"
             android:text="个人中心" />
     </LinearLayout>

@@ -83,7 +83,7 @@ public class TopicFragment extends BaseFragment implements OnIndicatorListener, 
 	
 	@Override
 	public String getModuleId() {
-		return ModuleConfig.MODULE_ASK_ID;
+		return ModuleConfig.MODULE_TOPIC_ID;
 	}
 	
 	@Override

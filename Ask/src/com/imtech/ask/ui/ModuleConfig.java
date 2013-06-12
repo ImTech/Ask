@@ -10,7 +10,7 @@ package com.imtech.ask.ui;
  */
 public class ModuleConfig {
 	public final static String MODULE_NEWS_ID = "news";
-	public final static String MODULE_ASK_ID = "ask";
+	public final static String MODULE_TOPIC_ID = "topic";
 	public final static String MODULE_MSG_ID = "msg";
 	public final static String MODULE_USER_ID = "user";
 	
