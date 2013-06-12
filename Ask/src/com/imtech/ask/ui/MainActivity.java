@@ -10,6 +10,7 @@ import android.widget.RelativeLayout;
 
 import com.imtech.ask.R;
 import com.imtech.ask.ui.IDockFragment.DockListener;
+import com.imtech.ask.ui.ask.AskFragment;
 import com.imtech.ask.ui.home.HomeFragment;
 import com.imtech.ask.ui.message.MessageFragment;
 import com.imtech.ask.ui.news.NewsFragment;
@@ -45,16 +46,17 @@ public class MainActivity extends FragmentActivity{
 			
 			@Override
 			public void onDockCenterItemClicked() {
-				mPageFramwork.showHomeFragment();
+				mPageFramwork.showAskFragment();
 			}
 		});
-		
 		
 		// init framwork
 	    mPageFramwork = new MainPageFramework(this);
 	    mPageFramwork.setContainer(R.id.mainCenterContainer);
 	    HomeFragment home = new HomeFragment();
 	    mPageFramwork.setHomeFragment(home);
+	    AskFragment ask = new AskFragment();
+	    mPageFramwork.setAskFragment(ask);
 	    mPageFramwork.showHomeFragment();
 	    
 	    NewsFragment news = new NewsFragment();

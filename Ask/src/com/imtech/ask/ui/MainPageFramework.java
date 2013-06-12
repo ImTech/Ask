@@ -27,6 +27,7 @@ public class MainPageFramework implements IPageFramework{
 	
 	private List<BaseFragment> mModules = new ArrayList<BaseFragment>();
 	private BaseFragment mHomeFragment;
+	private BaseFragment mAskFragment;
 	
 	private int mContainerId;
 	private FragmentActivity mActiivty;
@@ -40,6 +41,12 @@ public class MainPageFramework implements IPageFramework{
 		mHomeFragment = fragment;
 		mHomeFragment.setPageFramework(this);
 	}
+	
+	public void setAskFragment(BaseFragment fragment){
+        mAskFragment = fragment;
+        mAskFragment.setPageFramework(this);
+    }
+	
 	
 	public void addModule(BaseFragment fragment){
 		mModules.add(fragment);
@@ -106,6 +113,14 @@ public class MainPageFramework implements IPageFramework{
 			throw new InvalidParameterException("home fragment is null");
 		}
 		showFragment(mHomeFragment);
+	}
+	
+	public void showAskFragment(){
+	    Log.d(TAG, "showAskFragment");
+        if(mAskFragment == null){
+            throw new InvalidParameterException("ask fragment is null");
+        }
+        showFragment(mAskFragment);
 	}
 	
 	public void showFragment(String tag){
